@@ -1,0 +1,218 @@
+@import 'reset';
+
+$sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$fixed: Consolas, Monaco, 'Courier New', fixed;
+html { color:#333; font-family:$sans-serif; font-size:12px; -webkit-font-smoothing:antialiased;}
+a { color:inherit; }
+
+div.request {
+  width:435px;
+  border-right:1px solid #bbb;
+  position:fixed;
+  top:0;
+  bottom:0;
+  overflow-y:auto;
+  background:#f7f7f7;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  z-index:100;
+  
+  input[type=text] {
+    border:1px solid #ccc;
+    font-family:$sans-serif;
+    font-size:14px;
+    padding:7px;
+    width:100%;
+    &:focus {
+      border-color:#999;
+    }
+    
+    &:disabled {
+      color:#999;
+    }
+    
+    &.error {
+      border-color:red;
+    }
+  }
+  
+  
+  fieldset {
+    padding:25px;
+    border-bottom:1px solid #efefef;
+    h2 { font-size:15px; margin-bottom:15px; color:#999;}
+    
+    p.host { margin-bottom:10px;}
+    p.action input { width:49%; display:inline-block; vertical-align:middle;}
+    p.action input[name=controller] { float:left;}
+    p.action input[name=action] { float:right; }
+  }
+  
+  fieldset.header {
+    text-align:right;
+    
+    h1 {
+      float:left;
+      font-size:18px;
+      color:#999;
+      margin:0 0 0 0;
+      font-weight:300;
+    }
+    
+    button {
+      background:#444;
+      border:0;
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      appearance:none;
+      font-family:$sans-serif;
+      color:#fff;
+      font-weight:500;
+      font-size:11px;
+      display:inline-block;
+      padding:6px 15px;
+      margin-left:5px;
+      border-radius:5px;
+      &[name=reset] { background-color:#ccc;}
+    }
+    
+  }
+  
+  fieldset.headers {
+    ul {
+      li {
+        overflow:hidden;
+        margin-bottom:10px;
+        &:last-child { margin-bottom:0;}
+        input { width:49%;}
+        input[name=key] { float:left;}
+        input[name=value] { float:right;}
+      }
+    }
+    p.add {
+      margin-top:15px;
+      font-size:0.9em;
+      font-weight:bold;
+    }
+  }
+  
+  fieldset.params {
+    div#paramEditor {
+      width:100%;
+      border:1px solid #ccc;
+      height:300px;
+      &.error {
+        border-color:red;
+      }
+    }
+  }
+}
+
+div.response {
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:436px;
+  right:0;
+  overflow-y:auto;
+  z-index:5;
+  
+  div.window {
+    display:none;
+  
+    div.time {
+      float:right;
+      margin:12px 15px 0 0;
+      color:#fff;
+      font-size:12px;
+      opacity:0.9;
+    }
+  
+    div.status {
+      background:#333;
+      padding:12px 25px;
+      font-size:12px;
+      color:#fff;
+      font-size:15px;
+      font-weight:bold;
+      span.time { float:right; opacity:0.5;}
+      &.success { background-color:#7FC154;}
+      &.access-denied { background-color:#db7d21;}
+      &.parameter-error { background-color:#8e4fa3;}
+      &.validation-error { background-color:#229bcf;}
+      &.internal-server-error { background-color:#d52020;}
+    }
+  
+    ul.nav {
+      padding:10px 20px;
+      background:#efefef;
+      overflow:hidden;
+      border-bottom:1px solid #ddd;
+      li {
+        a {
+          float:left;
+          margin-right:15px;
+          background:#fff;
+          padding:5px 16px;
+          font-size:12px;
+          text-decoration:none;
+          display:inline-block;
+          border-radius:15px;
+          font-weight:500;
+          &.active {
+            background:#444;
+            color:#fff;
+          }
+        }
+      }
+    }
+  
+    .tab { display:none; }
+  
+    pre.data {
+      margin:25px;
+      font-size:1.2em;
+      white-space:pre;
+  		overflow-x:auto;
+  		word-wrap: normal;
+      span.key { color:#859C24; font-weight:bold;}
+      span.null { color:#999;}
+    }
+  
+    table {
+      margin:25px;
+      width:calc(100% - 50px);
+      td, th { border-bottom:1px solid #ccc; text-align:left; padding:9px 0; vertical-align:top;}
+      th { width:35%;}
+      td { width:65%;}
+      td pre {
+        white-space:pre;
+        span.key { color:#859C24; font-weight:bold;}
+        span.null { color:#999;}
+      }
+      tr:last-child {
+        th, td {
+          border-bottom:0;
+        }
+      }
+    }
+  }
+  
+  div.welcome {
+    text-align:center;
+    width:70%;
+    margin:100px auto 0 auto;
+    h2 {
+      font-size:30px;
+      margin-bottom:10px;
+      background:url(../images/robot.svg) no-repeat center top;
+      background-size:100px;
+      padding-top:130px;
+      
+    }
+    p {
+      font-size:15px;
+      color:#999;
+      line-height:1.6;
+    }
+  }
+}

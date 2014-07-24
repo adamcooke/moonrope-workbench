@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Moonrope Workbench</title>
+  <link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="all">
+  <script type="text/javascript" src="javascripts/jquery.js"></script>
+  <script type="text/javascript" src="javascripts/ace/ace.js"></script>
+  <script type="text/javascript" src="javascripts/mousetrap.js"></script>
+  <script type="text/javascript" src="javascripts/helpers.js"></script>
+  <script type="text/javascript" src="javascripts/workbench.js"></script>
+</head>
+<body>
+  <div class='request'>
+    <form action='#' id='request'>
+      
+      
+      <fieldset class='header'>
+        <h1>Moonrope Workbench</h1>
+        
+        <button type='submit' name='reset'>Reset</button>
+        <button type='submit' name='go'>Make Request</button>
+      </fieldset>
+      
+      <fieldset>
+        <p class='host'>
+          <input type='text' name='host' placeholder='http://your-moonrope-service.com'>
+        </p>
+        <p class='action'>
+          <input type='text' name='controller' placeholder='controller'>
+          <input type='text' name='action' placeholder='action'>
+        </p>
+      </fieldset>
+            
+      <fieldset class='params'>
+        <h2>Parameters</h2>
+        <div id='paramEditor'></div>
+      </fieldset>
+      
+      <fieldset class='headers'>
+        <h2>Headers</h2>
+        <ul>
+          <li class='template' style='display:none;'>
+            <input type='text' name='key' placeholder='Key'>
+            <input type='text' name='value' placeholder='Value'>
+          </li>
+        </ul>
+        <p class='add'><a href='#'>Add a header</a></p>
+      </fieldset>
+      
+    </form>
+  </div>
+  
+  <div class='response'>
+    
+    <div class='window'>
+      <div class='time'>
+        <b>0</b> ms
+      </div>
+    
+      <div class='status'>
+        Status
+      </div>
+    
+      <ul class='nav'>
+        <li><a href='#data' class='active'>Data</a></li>
+        <li><a href='#flags'>Flags</a></li>
+        <li><a href='#headers'>Headers</a></li>
+      </ul>
+      
+      <pre class='tab tab-data data'></pre>
+      <table class='tab tab-flags flags'></table>      
+      <table class='tab tab-headers headers'></table>
+    </div>
+    
+    <div class='welcome'>
+      <h2>Welcome to Moonrope Workbench</h2>
+      <p>You use use this tool to make requests to your Moonrope-enabled services. Get started by crafting a request using the options on the left.</p>
+    </div>
+    
+  </div>
+  
+  
+</body>
+</html>

@@ -1,0 +1,371 @@
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  letter-spacing: 0;
+  vertical-align: baseline;
+  background: transparent;
+  font-weight: normal; }
+
+article, aside, figure, footer, header, hgroup, nav, section {
+  display: block; }
+
+img, object, embed {
+  max-width: 100%; }
+
+ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+b, strong {
+  font-weight: bold; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help; }
+
+/* tables still need cellspacing="0" in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+th {
+  font-weight: bold;
+  vertical-align: bottom; }
+
+td {
+  font-weight: normal;
+  vertical-align: top; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
+pre {
+  white-space: pre;
+  /* CSS2 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+  /* IE */ }
+
+input[type="radio"] {
+  vertical-align: text-bottom; }
+
+input[type="checkbox"] {
+  vertical-align: bottom;
+  *vertical-align: baseline; }
+
+.ie6 input {
+  vertical-align: text-bottom; }
+
+select, input, textarea {
+  font: 99% sans-serif; }
+
+table {
+  font-size: inherit;
+  font: 100%; }
+
+/* Accessible focus treatment
+	people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active {
+  outline: none; }
+
+small {
+  font-size: 85%; }
+
+strong, th {
+  font-weight: bold; }
+
+td, td img {
+  vertical-align: top; }
+
+/* Make sure sup and sub don't screw with your line-heights
+	gist.github.com/413930 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif; }
+
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+button {
+  cursor: pointer; }
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {
+  margin: 0; }
+
+/* make buttons play nice in IE */
+button {
+  width: auto;
+  overflow: visible; }
+
+/* scale images in IE7 more attractively */
+.ie7 img {
+  -ms-interpolation-mode: bicubic; }
+
+/* prevent BG image flicker upon hover */
+.ie6 html {
+  filter: expression(document.execCommand("BackgroundImageCache", false, true)); }
+
+/* let's clear some floats */
+.clearfix:before, .clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden; }
+
+.clearfix:after {
+  clear: both; }
+
+.clearfix {
+  zoom: 1; }
+
+select, input, textarea, button, a {
+  outline: none; }
+
+input, textarea {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */ }
+
+html {
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased; }
+
+a {
+  color: inherit; }
+
+div.request {
+  width: 435px;
+  border-right: 1px solid #bbb;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  background: #f7f7f7;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 100; }
+  div.request input[type=text] {
+    border: 1px solid #ccc;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    padding: 7px;
+    width: 100%; }
+    div.request input[type=text]:focus {
+      border-color: #999; }
+    div.request input[type=text]:disabled {
+      color: #999; }
+    div.request input[type=text].error {
+      border-color: red; }
+  div.request fieldset {
+    padding: 25px;
+    border-bottom: 1px solid #efefef; }
+    div.request fieldset h2 {
+      font-size: 15px;
+      margin-bottom: 15px;
+      color: #999; }
+    div.request fieldset p.host {
+      margin-bottom: 10px; }
+    div.request fieldset p.action input {
+      width: 49%;
+      display: inline-block;
+      vertical-align: middle; }
+    div.request fieldset p.action input[name=controller] {
+      float: left; }
+    div.request fieldset p.action input[name=action] {
+      float: right; }
+  div.request fieldset.header {
+    text-align: right; }
+    div.request fieldset.header h1 {
+      float: left;
+      font-size: 18px;
+      color: #999;
+      margin: 0 0 0 0;
+      font-weight: 300; }
+    div.request fieldset.header button {
+      background: #444;
+      border: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #fff;
+      font-weight: 500;
+      font-size: 11px;
+      display: inline-block;
+      padding: 6px 15px;
+      margin-left: 5px;
+      border-radius: 5px; }
+      div.request fieldset.header button[name=reset] {
+        background-color: #ccc; }
+  div.request fieldset.headers ul li {
+    overflow: hidden;
+    margin-bottom: 10px; }
+    div.request fieldset.headers ul li:last-child {
+      margin-bottom: 0; }
+    div.request fieldset.headers ul li input {
+      width: 49%; }
+    div.request fieldset.headers ul li input[name=key] {
+      float: left; }
+    div.request fieldset.headers ul li input[name=value] {
+      float: right; }
+  div.request fieldset.headers p.add {
+    margin-top: 15px;
+    font-size: 0.9em;
+    font-weight: bold; }
+  div.request fieldset.params div#paramEditor {
+    width: 100%;
+    border: 1px solid #ccc;
+    height: 300px; }
+    div.request fieldset.params div#paramEditor.error {
+      border-color: red; }
+
+div.response {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 436px;
+  right: 0;
+  overflow-y: auto;
+  z-index: 5; }
+  div.response div.window {
+    display: none; }
+    div.response div.window div.time {
+      float: right;
+      margin: 12px 15px 0 0;
+      color: #fff;
+      font-size: 12px;
+      opacity: 0.9; }
+    div.response div.window div.status {
+      background: #333;
+      padding: 12px 25px;
+      font-size: 12px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold; }
+      div.response div.window div.status span.time {
+        float: right;
+        opacity: 0.5; }
+      div.response div.window div.status.success {
+        background-color: #7FC154; }
+      div.response div.window div.status.access-denied {
+        background-color: #db7d21; }
+      div.response div.window div.status.parameter-error {
+        background-color: #8e4fa3; }
+      div.response div.window div.status.validation-error {
+        background-color: #229bcf; }
+      div.response div.window div.status.internal-server-error {
+        background-color: #d52020; }
+    div.response div.window ul.nav {
+      padding: 10px 20px;
+      background: #efefef;
+      overflow: hidden;
+      border-bottom: 1px solid #ddd; }
+      div.response div.window ul.nav li a {
+        float: left;
+        margin-right: 15px;
+        background: #fff;
+        padding: 5px 16px;
+        font-size: 12px;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 15px;
+        font-weight: 500; }
+        div.response div.window ul.nav li a.active {
+          background: #444;
+          color: #fff; }
+    div.response div.window .tab {
+      display: none; }
+    div.response div.window pre.data {
+      margin: 25px;
+      font-size: 1.2em;
+      white-space: pre;
+      overflow-x: auto;
+      word-wrap: normal; }
+      div.response div.window pre.data span.key {
+        color: #859C24;
+        font-weight: bold; }
+      div.response div.window pre.data span.null {
+        color: #999; }
+    div.response div.window table {
+      margin: 25px;
+      width: calc(100% - 50px); }
+      div.response div.window table td, div.response div.window table th {
+        border-bottom: 1px solid #ccc;
+        text-align: left;
+        padding: 9px 0;
+        vertical-align: top; }
+      div.response div.window table th {
+        width: 35%; }
+      div.response div.window table td {
+        width: 65%; }
+      div.response div.window table td pre {
+        white-space: pre; }
+        div.response div.window table td pre span.key {
+          color: #859C24;
+          font-weight: bold; }
+        div.response div.window table td pre span.null {
+          color: #999; }
+      div.response div.window table tr:last-child th, div.response div.window table tr:last-child td {
+        border-bottom: 0; }
+  div.response div.welcome {
+    text-align: center;
+    width: 70%;
+    margin: 100px auto 0 auto; }
+    div.response div.welcome h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      background: url(../images/robot.svg) no-repeat center top;
+      background-size: 100px;
+      padding-top: 130px; }
+    div.response div.welcome p {
+      font-size: 15px;
+      color: #999;
+      line-height: 1.6; }
