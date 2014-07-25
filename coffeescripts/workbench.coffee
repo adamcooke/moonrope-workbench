@@ -13,10 +13,21 @@ window.moonropeGUI =
     object
   
   saveRequestValues: ->
-    localStorage.setItem("requestValues", JSON.stringify(this.currentRequestValues()))
+    if mwbJS?
+      mwbJS.saveState_(JSON.stringify(this.currentRequestValues()))
+    else if localStorage?
+      localStorage.setItem("requestValues", JSON.stringify(this.currentRequestValues()))
   
   loadRequestValues: ->
-    if values = localStorage.requestValues
+    
+    if mwbJS?
+      values = mwbJS.currentState()
+    else if localStorage?
+      values = localStorage.requestValues
+    else
+      values = null
+    
+    if values
       values = JSON.parse(values)
       $('input[name=host]').val(values.host)
       $('input[name=controller]').val(values.controller)
@@ -206,6 +217,11 @@ $ ->
   moonropeGUI.loadRequestValues()
   
   #
+  # First field
+  #
+  $('input[name=host]').focus()
+  
+  #
   # Header addition
   #
   $('form#request fieldset.headers a').on 'click', ->
@@ -231,7 +247,7 @@ $ ->
   #
   # Stop form submissions
   #
-  $('form').on 'submit', ->
+  $('body').on 'submit', 'form', ->
     false
   
   #
@@ -248,6 +264,6 @@ $ ->
 # Keyboard shortcuts
 #
 Mousetrap.stopCallback = -> false
-Mousetrap.bind ['command+enter', 'ctrl+enter'], ->
+Mousetrap.bind ['command+enter', 'ctrl+enter', 'command+r'], ->
   moonropeGUI.makeRequest()
   false

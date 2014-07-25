@@ -13,11 +13,22 @@
       return object;
     },
     saveRequestValues: function() {
-      return localStorage.setItem("requestValues", JSON.stringify(this.currentRequestValues()));
+      if (typeof mwbJS !== "undefined" && mwbJS !== null) {
+        return mwbJS.saveState_(JSON.stringify(this.currentRequestValues()));
+      } else if (typeof localStorage !== "undefined" && localStorage !== null) {
+        return localStorage.setItem("requestValues", JSON.stringify(this.currentRequestValues()));
+      }
     },
     loadRequestValues: function() {
       var values;
-      if (values = localStorage.requestValues) {
+      if (typeof mwbJS !== "undefined" && mwbJS !== null) {
+        values = mwbJS.currentState();
+      } else if (typeof localStorage !== "undefined" && localStorage !== null) {
+        values = localStorage.requestValues;
+      } else {
+        values = null;
+      }
+      if (values) {
         values = JSON.parse(values);
         $('input[name=host]').val(values.host);
         $('input[name=controller]').val(values.controller);
@@ -213,6 +224,7 @@
       tabSize: 2
     });
     moonropeGUI.loadRequestValues();
+    $('input[name=host]').focus();
     $('form#request fieldset.headers a').on('click', function() {
       var template;
       if (!moonropeGUI.disabled) {
@@ -229,7 +241,7 @@
       moonropeGUI.resetForm();
       return false;
     });
-    $('form').on('submit', function() {
+    $('body').on('submit', 'form', function() {
       return false;
     });
     return $('div.response ul.nav a').on('click', function() {
@@ -245,7 +257,7 @@
     return false;
   };
 
-  Mousetrap.bind(['command+enter', 'ctrl+enter'], function() {
+  Mousetrap.bind(['command+enter', 'ctrl+enter', 'command+r'], function() {
     moonropeGUI.makeRequest();
     return false;
   });
